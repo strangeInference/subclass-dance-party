@@ -1,6 +1,10 @@
 var bellyTwi = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="bellyTwi"></span>');
+  this.$node = $('<img class="dancer bellytwi" src = "media/tw07.gif" style="width:200px;height:100px;">');
+  this.$node.css({
+    top: top,
+    left: left
+  });
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -12,7 +16,7 @@ bellyTwi.prototype = Object.create(makeDancer.prototype);
 bellyTwi.prototype.constructor = bellyTwi;
 bellyTwi.prototype.step = function() {
     // call the old version of step at the beginning of any call to this new version of step
-    this.$node.toggle();
+    //this.$node.toggle();
     // this.oldStep();
     makeDancer.prototype.step.apply(this);
     // toggle() is a jQuery method to show/hide the <span> tag.
