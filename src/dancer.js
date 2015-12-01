@@ -8,7 +8,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
     top: top,
     left: left
   });
-  //this.step();
+  this.step();
 
   //var dancer = {};
 
@@ -22,7 +22,7 @@ makeDancer.prototype.step = function() {
   // it just schedules the next step
   //doSomethin
   var myThis = this;
-  setTimeout(function(){myThis.step();}, this.timeBetweenSteps);
+  setTimeout(function(){myThis.step()}, this.timeBetweenSteps);
 };
 
 
