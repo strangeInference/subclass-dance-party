@@ -37,8 +37,11 @@ $(document).ready(function() {
     }
   });
 
-  $('.dancer'). mouseover(function(){
-    $(this).width() * 2;
+  $(document).on('mouseover', '.dancer', function(){
+    //$(this).fadeOut(10);
+    $(this).css({top: $("body").height() * Math.random(), left: $("body").width() * Math.random()});
+    // $(this).fadeIn(1000);
+
 
   });
 
