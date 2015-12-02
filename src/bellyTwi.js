@@ -18,6 +18,19 @@ bellyTwi.prototype.step = function() {
     // call the old version of step at the beginning of any call to this new version of step
     //this.$node.toggle();
     // this.oldStep();
+    var closest = Infinity;
+    for (var i = 0; i < window.dancers.length; i++){
+      var distance = Math.sqrt(Math.pow(this.top - window.dancers[i].top, 2) + 
+        Math.pow(this.left - window.dancers[i].left, 2));
+      if (distance < closest && distance > 0){
+        closest = distance;
+      }
+    }
+    if (closest < 200){
+      this.top = $("body").height() * Math.random();
+      this.left = $("body").width() * Math.random();
+      this.setPosition(this.top, this.left);
+    }
     makeDancer.prototype.step.apply(this);
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and
